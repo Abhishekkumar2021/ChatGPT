@@ -17,7 +17,7 @@ function Text() {
         setLoading(true)
         try{
             setChats([...chats, {message: capitalize(message)}])
-            const res = await axios.post('http://localhost:8080/api/text', {prompt: message + ". Give answer in markdown format with language code. For example: ```python\nprint('Hello World')\n```"})
+            const res = await axios.post('http://localhost:8080/api/text', {prompt: "Give the result in proper markdown form with language specific syntax highlighting and enough semantics of markdown. The query is - " + message})
             setChats([...chats, {message: capitalize(message)}, {message: res.data}])
             setLoading(false)
             setMessage('')
